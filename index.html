@@ -13,7 +13,7 @@
 
 <title>Job opportunity</title>
 
-<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
@@ -146,11 +146,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -179,8 +183,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -188,16 +192,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -285,69 +282,68 @@ Göttingen, Germany, invites applications for a <br></p>
 <p>with TV-L E13, 100% for 3 years. </font></p>
 <p><br></p>
 <p>Official website of the job advertisement <a
-href="https://www.uni-goettingen.de/de/644546.html?filters=%7B%22vollzeit%22:%5B%5D,%22befristet%22:%5B%5D,%22gruppe%22:%5B%5D,%22besoldGrp%22:%5B%5D%7D&amp;details=1204">here</a>.</p>
+href="https://www.uni-goettingen.de/de/644546.html?filters=%7B%22vollzeit%22:%5B%5D,%22befristet%22:%5B%5D,%22gruppe%22:%5B%5D,%22besoldGrp%22:%5B%5D%7D&amp;details=2762">here</a>.</p>
 </div>
 <p><br> <br></p>
 <div id="the-position" class="section level1">
 <h1>The position</h1>
-<p>The position is linked to a five-year project on the topic
-“Mechanisms, Capacities, and Dependencies: A New Theory of Causal
-Reasoning”, led by Michael R. Waldmann, funded by the German Research
-Foundation (Koselleck program). The goal of the project is the
-development of a novel theory of causal cognition, integrating insights
-from Pearl’s hierarchical causal inference theory with new theories of
-mechanisms developed in philosophy of science (New Mechanism view). The
-goal of the project is to develop a new psychological theory that
-explains everyday causal cognition. The theory will be experimentally
-tested by investigating different causal models, mechanisms, and tasks
-in various content domains and populations (adults, children, non-human
-primates). Additionally, computational models of the theory will be
-developed and the role of mechanisms in psychological research will be
-analyzed. The project will bring together an interdisciplinary group of
-researchers from different fields of cognitive science, including
-cognitive, developmental, and experimental psychology, computer science,
-computational modelling, AI, and philosophy of science.</p>
+<p>The position is linked to a project on the topic “Mechanisms,
+Capacities, and Dependencies: A New Theory of Causal Reasoning”, led by
+Michael R. Waldmann and funded by the German Research Foundation
+(Koselleck program). The goal of the project is to develop a novel
+theory of causal cognition, integrating insights from Pearl’s
+hierarchical causal inference theory with new theories of mechanisms
+developed in philosophy of science (the New Mechanism view). One of the
+expected outcomes is a new psychological theory that explains everyday
+causal cognition. The theory will be experimentally tested by
+investigating different causal models, mechanisms, and tasks in various
+content domains and populations (adults, children, non-human primates).
+Additionally, computational models of the theory will be developed and
+the role of mechanisms in psychological research will be analyzed. The
+project will bring together an interdisciplinary group of researchers
+from different fields of cognitive science.</p>
 <p><br> <br></p>
 </div>
 <div id="requirements" class="section level1">
 <h1>Requirements</h1>
-<p>A PhD degree in Psychology, Cognitive Science, Artificial
-Intelligence, Computer Science, Philosophy, or a related field is
+<p>A PhD degree in Psychology, Cognitive Science, or a related field is
+required. We are primarily looking for a candidate with experience with
+empirically testing theories of causal reasoning. Candidates with
+research experience in related fields of higher-level cognition are also
+encouraged to apply. Prior experience with running, analyzing, and
+documenting online experiments is required.</p>
+<p>The group will be located at the University of Göttingen but German
+language skills are not necessary. Residence in Göttingen is
 required.</p>
-<p>In the first round of hiring, candidates who have an interest in
-developing new computational models of causal cognition are especially
-encouraged to apply. But candidates with other skills, who are
-interested in causal cognition, should also contact us. The group will
-be located at the University of Göttingen but German language skills are
-not required.</p>
 <p>The University of Göttingen is an equal opportunities employer and
 places particular emphasis on fostering career opportunities for women.
 Qualified women are therefore strongly encouraged to apply in fields in
 which they are underrepresented. The university has committed itself to
 being a family-friendly institution and supports their employees in
-balancing work and family life. The mission of the University is to
-employ a greater number of severely disabled persons. Applications from
-severely disabled persons with equivalent qualifications will be given
-preference.</p>
+balancing work and family life. The university is particularly committed
+to the professional participation of severely disabled employees and
+therefore welcomes applications from severely disabled persons. In the
+case of equal qualifications, preference is given to applications from
+people with severe disabilities. A disability or equality is to be
+included in the application in order to protect the interests.</p>
 <p><br> <br></p>
 </div>
 <div id="application" class="section level1">
 <h1>Application</h1>
-<p>The position (TV-L E 13, 100%) is available from November 2022 but
-the start date is flexible. Candidates should apply electronically to <a
-href="mailto:michael.waldmann@bio.uni-goettingen.de"
+<p>The position (TV-L E 13, 100 %) is immediately available but the
+start date can be negotiated. Candidates should apply electronically to
+<a href="mailto:michael.waldmann@bio.uni-goettingen.de"
 class="email">michael.waldmann@bio.uni-goettingen.de</a> (subject:
-post-doc) by 02.08.2022. Please submit a cover letter explaining your
+post-doc) by 01.04.2024. Please submit a cover letter explaining your
 motivation and fit, a CV, one or two samples of written work, and
 contact information of three potential referees for letters of
-recommendation. Please contact us also if you are interested in a later
-start date as the project is funded for five years.</p>
+recommendation.</p>
 <p><br> <br></p>
 </div>
 <div id="please-note" class="section level1">
 <h1>Please note:</h1>
 <p>With the submission of your application, you accept the processing of
-your applicant data in terms of data protection law. Further information
+your applicant data in terms of data-protection law. Further information
 on the legal basis and data usage is provided in the Information General
 Data Protection Regulation (GDPR) <a
 href="https://www.uni-goettingen.de/hinweisdsgvo"
